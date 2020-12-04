@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<body [style.background-color]="flag ? colors[i] : colorB">
+
+    <div class="btn-group">
+        <button class="btn btn-primary" (click)='divszine2()'>Változzon meg a szín valami másra</button>
+        <button class="btn btn-secondary" (click)='miaszin()'>Legyen ZÖLD</button>
+    </div>
+
+    <h1></h1>
+    <h1>{{magyarcolors[this.i]}}</h1>
+    <h6>{{magyarcolors}}</h6>
+
+    <input  class="form-control" type="text" [value]='name' [style]='color'>
+    <input class="form-control" type="text" #box2 placeholder="Írj be egy színt angolul és nyomd a gombot" [style]='ketyere'>
+    <button (click)='szincsere(box2.value)'>szinezd be</button>
+
+    <div ng-app="">
+        <p>Írd be a nevedet:</p>
+        <p>Név : <input class="form-control" #box (keyup)="addkianevet(box.value)" type="text" ng-model="name" placeholder="Enter name here"></p>
+        <h1>Hello {{name}}</h1>
+        </div>
+
+
+        <!-- toggle the "special" class on/off with a property -->

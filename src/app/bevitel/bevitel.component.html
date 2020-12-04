@@ -1,0 +1,50 @@
+<form [formGroup]="addRun" (ngSubmit)="collectRun()">
+    <div class="row align-items-center">
+        <div class="col-1">
+        </div>
+        <div class="form-group col-10" id="bevitel">
+            <br>
+            <h3>Új Futás bevitele:</h3>
+            <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Siker!</strong> Sikeresen rögzítetted ezt a futást.
+                <button (click)="closealert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Távolság</span>
+                </div>
+                <input class="form-control" type="number" formControlName="distance" min="1" max="50" step="0.1" class="form-control"
+                    aria-describedby="basic-addon1">
+            </div>
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" formControlName="time" placeholder="Ennyit futottam" aria-label="Időtartam"
+                    aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2">HH:MM:SS:</span>
+                </div>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">Futás dátuma</span>
+                </div>
+                <input  type="date" formControlName="idopont" class="form-control" aria-describedby="basic-addon3">
+            </div>
+
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Komment</span>
+                </div>
+                <textarea formControlName="komment" class="form-control" aria-label="With textarea"></textarea>
+            </div><br>
+            <div> <button id="send" class="btn btn-info btn-block" type="submit">Küldés</button></div><br>
+        </div>
+        <div class="col-1"></div>
+    </div>
+</form>
+

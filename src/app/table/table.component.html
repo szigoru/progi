@@ -1,0 +1,52 @@
+<br>
+<div class="btn-group">
+  <button type="button" class="btn btn-secondary">
+    2020
+  </button>
+  <button type="button" class="btn btn-primary">
+    Futások száma: <span class="badge badge-light">{{alk}}</span> alkalom.
+    <span class="sr-only">Futások száma</span>
+  </button>
+  <button type="button" class="btn btn-primary">
+    Összes futás távolsága: <span class="badge badge-light">{{ossz}}</span> km.
+    <span class="sr-only">Táv</span>
+  </button>
+  <button type="button" class="btn btn-primary">
+    Leghosszabb futás távolsága <span class="badge badge-light">{{legh}}</span> km.
+    <span class="sr-only">Távolság</span>
+  </button>
+  <button type="button" class="btn btn-primary">
+    Átlag futott távolság <span class="badge badge-light">{{ossz/alk | number }}</span> km.
+    <span class="sr-only">Távolság</span>
+  </button>
+
+</div>
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th style="color: #ffc107" scope="col">Táv</th>
+      <th style="color: #ffc107" scope="col">Időtartam</th>
+      <th style="color: #ffc107" scope="col">Időpont</th>
+      <th style="color: #ffc107" scope="col">Komment</th>
+      <th style="color: #ffc107" scope="col">Gombok</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let element of data">
+      <td>{{element.distance}}</td>
+      <td>{{element.time}}</td>
+      <td>{{element.idopont}}</td>
+      <td>{{element.komment}}</td>
+      <td>
+        <btn-group>
+          <button type="button" class="btn btn-primary"><i (click)="deleteRun(element.id)" class="fa fa-trash"
+              style="font-size:18px; color: black;"></i>
+          </button>
+          <button type="button" class="btn btn-primary">
+            <a routerLink="/update/{{element.id}}"><i class="fa fa-edit" style="font-size:18px; color:black"></i></a>
+          </button></btn-group>
+      </td>
+    </tr>
+  </tbody>
+</table>
